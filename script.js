@@ -5,55 +5,54 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
   let employeesArray = [];
-  let x =0;
-  let y =0;
+  let x = 0;
+  let y = 0;
+  let firstName = '';
+  let lastName = '';
+  let salary = '';
+  //let employee = {firstName: '', lastName: '', salary: 0};
   while (y != 1){
-    employeesArray[x] = {fname: '', lname: '', salary: 0};
-    employeesArray[x].fname = prompt("Enter first name.");
-    if(employeesArray[x].fname === null){
-      employeesArray.pop();
-      y == 1;
-      return;
+    firstName = prompt("Enter first name.");
+    if(firstName === null){
+      return employeesArray;
     }
-    employeesArray[x].lname = prompt("Enter last name.");
-    if(employeesArray[x].lname === null){
-      employeesArray.pop();
-      y == 1;
-      return;
+    lastName = prompt("Enter last name.");
+    if(lastName === null){
+      return employeesArray;
     }
-    employeesArray[x].salary = Number(prompt("Enter salary."));
-    if(employeesArray[x].salary === null){
-      employeesArray.pop();
-      y == 1;
-      return;
+    salary = prompt("Enter salary.");
+    if(salary === null){
+      return employeesArray;
     }
-    x++;
+    employeesArray.push({firstName, lastName, salary});
+    console.log(employeesArray[0]);
   }
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+  let e = [];
+  e = employeesArray;
   let x = 0;
   let y = 0;
-  if (employeesArray[0] !== undefined){
-    for (let i=0; i < employeesArray.length; i++){
-      x + employeesArray[i].salary;
-      y++;
-    }
+  for (let i=0; i < e.length; i++){
+    x == x + e[i].salary;
+    console.log(x);
+    y++;
   }
-  if (y != 0){
-    x = x / y;
-    console.log(`The average employee salary between our ${y} employee(s) is: $${x}`);
-  } 
+  x == x / y;
+  console.log(`The average employee salary between our ${y} employee(s) is: $${x}`); 
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
-  const rand = Math.floor(Math.random()*employeesArray.length());
-  if (employeesArray[0] !== null & (employeesArray[rand].fname !== '')){
-    console.log(`Congratulations to ${employeesArray[rand].fname} ${employeesArray[rand].lname}, our random drawing winner!`);
+  let e = [];
+  e = employeesArray;
+  const rand = Math.floor(Math.random()*e.length);
+  if (e[0] !== undefined ){
+    console.log(`Congratulations to ${e[rand].firstName} ${e[rand].lastName}, our random drawing winner!`);
   }
 } 
 
@@ -72,7 +71,7 @@ const displayEmployees = function(employeesArray) {
   employeeTable.innerHTML = '';
 
   // Loop through the employee data and create a row for each employee
-  for (let i = 0; i < employeesArray.length(); i++) {
+  for (let i = 0; i < employeesArray.length; i++) {
     const currentEmployee = employeesArray[i];
 
     const newTableRow = document.createElement("tr");
