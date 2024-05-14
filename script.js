@@ -25,7 +25,6 @@ const collectEmployees = function() {
       return employeesArray;
     }
     employeesArray.push({firstName, lastName, salary});
-    console.log(employeesArray[0]);
   }
 }
 
@@ -37,12 +36,11 @@ const displayAverageSalary = function(employeesArray) {
   let x = 0;
   let y = 0;
   for (let i=0; i < e.length; i++){
-    x == x + e[i].salary;
-    console.log(x);
+    x += Number(e[i].salary);
     y++;
   }
-  x == x / y;
-  console.log(`The average employee salary between our ${y} employee(s) is: $${x}`); 
+  x = x / y;
+  console.log(`The average employee salary between our ${y} employee(s) is: ${x.toLocaleString("en-US",{style:"currency", currency:"USD"})}`); 
 }
 
 // Select a random employee
