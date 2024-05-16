@@ -3,14 +3,13 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+  // These variables hold the data necessary to populate the array
   let employeesArray = [];
-  let x = 0;
   let y = 0;
   let firstName = '';
   let lastName = '';
-  let salary = '';
-  //let employee = {firstName: '', lastName: '', salary: 0};
+  let salary = 0;
+  // This while loop populates the array according to user input
   while (y != 1){
     firstName = prompt("Enter first name.");
     if(firstName === null){
@@ -24,19 +23,23 @@ const collectEmployees = function() {
     if(salary === null){
       return employeesArray;
     }
+    else{
+      salary = Number(salary);
+    }
     employeesArray.push({firstName, lastName, salary});
   }
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  // TODO: Calculate and display the average salary
+  // The variables hold the array coming from user input and other values necessary for calculations
   let e = [];
   e = employeesArray;
   let x = 0;
   let y = 0;
+  // The for loop changes the values of the variables according to the data provided, afterwards, average is calculated and displayed on the console
   for (let i=0; i < e.length; i++){
-    x += Number(e[i].salary);
+    x += e[i].salary;
     y++;
   }
   x = x / y;
@@ -45,10 +48,11 @@ const displayAverageSalary = function(employeesArray) {
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
+  // A combination of methods for random number generation is used in the creation of a variable
   let e = [];
   e = employeesArray;
   const rand = Math.floor(Math.random()*e.length);
+  // The element of the array with the random variable as index is displayed on the console
   if (e[0] !== undefined ){
     console.log(`Congratulations to ${e[rand].firstName} ${e[rand].lastName}, our random drawing winner!`);
   }
