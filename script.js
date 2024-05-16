@@ -8,6 +8,7 @@ const collectEmployees = function() {
   let y = 0;
   let firstName = '';
   let lastName = '';
+  let next = '';
   let salary = 0;
   // This while loop populates the array according to user input
   while (y != 1){
@@ -27,6 +28,11 @@ const collectEmployees = function() {
       salary = Number(salary);
     }
     employeesArray.push({firstName, lastName, salary});
+    next = confirm("Do you want to add another employee?");
+    if(!next){
+      return employeesArray;
+    }
+    next = '';
   }
 }
 
