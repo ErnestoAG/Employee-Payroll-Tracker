@@ -9,7 +9,7 @@ The JavaScript code for the Employee Payroll Tracker website is complete accordi
 * There is a function that creates a random number variable and displays a random employee on the console.
 * NOTE: No test cases nor error detection prompts were listed on the instructions, some input can lead to errors. Target behavior was tested and works as intended.
    
- Here is the link to the web page: 
+ Here is the link to the web page: https://ernestoag.github.io/Employee-Payroll-Tracker/
  
 ## Installation
 
